@@ -39,11 +39,12 @@ return {
 	"rafamadriz/friendly-snippets",
 	"windwp/nvim-autopairs",
 	"lukas-reineke/cmp-under-comparator",
+	"hrsh7th/cmp-cmdline",
+	"f3fora/cmp-spell",
 	{
 		"windwp/nvim-ts-autotag",
 		dependencies = "nvim-treesitter",
 	},
-	"f3fora/cmp-spell",
 	--LSP
 	{
 		"williamboman/mason.nvim",

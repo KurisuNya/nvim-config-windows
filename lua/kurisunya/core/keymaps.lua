@@ -57,6 +57,11 @@ keymap.set("n", "<S-Up>", "5k")
 keymap.set("n", "<leader>/", ":noh<cr>")
 --删除单字不复制
 keymap.set("n", "x", '"_x')
+--数字加减
+keymap.set("n", "+", "<C-a>")
+keymap.set("n", "_", "<C-x>")
+--拼写检查
+keymap.set("n", "<leader>sc", ":setlocal spell! spelllang=en_us<cr>")
 --------------------
 --   insert-mod   --
 --------------------
@@ -75,7 +80,6 @@ keymap.set("v", "p", '"_dP')
 --   terminal-mod   --
 ----------------------
 --终端窗口操作
-keymap.set("t", "<Esc>", "<C-\\><C-n>")
 keymap.set("t", "<C-h>", [[ <C-\><C-N><C-w>h ]])
 keymap.set("t", "<C-j>", [[ <C-\><C-N><C-w>j ]])
 keymap.set("t", "<C-k>", [[ <C-\><C-N><C-w>k ]])
@@ -118,6 +122,8 @@ keymap.set("n", "<leader>fb", ":Telescope buffers<cr>")
 keymap.set("n", "<leader>fh", ":Telescope help_tags<cr>")
 --查找定义(全部标签内)
 keymap.set("n", "<leader>fd", ":Telescope lsp_document_symbols<cr>")
+--查找项目
+keymap.set("n", "<leader>fp", ":Telescope projects<cr>")
 --查看git-commit(全局)
 keymap.set("n", "<leader>gc", ":Telescope git_commits<cr>")
 --查看git-commit(当前文件)

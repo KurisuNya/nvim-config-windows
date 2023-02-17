@@ -37,8 +37,6 @@ vim.o.smartcase = true
 vim.o.incsearch = true
 -- 禁止折行
 vim.wo.wrap = false
--- 允许隐藏被修改过的buffer
-vim.o.hidden = true
 -- 鼠标支持
 vim.o.mouse = "a"
 -- 禁止创建备份文件
@@ -52,12 +50,6 @@ vim.o.timeoutlen = 1000
 -- 分屏方向
 vim.o.splitbelow = true
 vim.o.splitright = true
--- 自动补全不自动选中
-vim.g.completeopt = "menu,menuone,noselect,noinsert"
--- 补全增强
-vim.o.wildmenu = true
--- Don't pass messages to |ins-completin menu|
-vim.o.shortmess = vim.o.shortmess .. "c"
 -- 补全显示10行
 vim.o.pumheight = 10
 -- 永远显示tabline
@@ -69,6 +61,8 @@ vim.o.autoread = true
 vim.bo.autoread = true
 -- 显示左侧图标指示列
 vim.wo.signcolumn = "yes"
--- 拼写提示
-vim.opt.spell = true
-vim.opt.spelllang = { "en_us" }
+-- 中英文自动切换
+vim.cmd("autocmd VimEnter * :silent :!C:\\im-select.exe 1033")
+vim.cmd("autocmd InsertEnter * :silent :!C:\\im-select.exe 2052")
+vim.cmd("autocmd InsertLeave * :silent :!C:\\im-select.exe 1033")
+vim.cmd("autocmd VimLeave * :silent :!C:\\im-select.exe 2052")

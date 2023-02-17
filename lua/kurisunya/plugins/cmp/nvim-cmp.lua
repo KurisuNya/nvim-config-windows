@@ -50,13 +50,14 @@ cmp.setup({
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
 	}),
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp", priority = 50 },
-		{ name = "luasnip", priority = 50 },
-		{ name = "path", priority = 99 },
-		{ name = "buffer", priority = 50, max_item_count = 5 },
-		{ name = "nvim_lsp_signature_help", priority = 50 },
+		{ name = "nvim_lsp", priority = 2 },
+		{ name = "luasnip", priority = 2 },
+		{ name = "path", priority = 3 },
+		{ name = "buffer", priority = 2, max_item_count = 5 },
+		{ name = "nvim_lsp_signature_help", priority = 2 },
 		{
 			name = "spell",
+			priority = 1,
 			option = {
 				keep_all_entries = false,
 				enable_in_context = function()
@@ -86,6 +87,39 @@ cmp.setup({
 	},
 })
 
+cmp.setup.cmdline("/", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = "buffer" },
+	},
+})
+cmp.setup.cmdline(":", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = "path" },
+	}, {
+		{
+			name = "cmdline",
+			option = {
+				ignore_cmds = { "Man", "!" },
+			},
+		},
+	}),
+})
+
 cmp.setup.filetype({ "TelescopePrompt" }, {
 	sources = {},
+})
+cmp.setup.filetype({ "vim", "markdown" }, {
+	sources = {
+		{
+			name = "spell",
+			option = {
+				keep_all_entries = false,
+				enable_in_context = function()
+					return true
+				end,
+			},
+		},
+	},
 })
