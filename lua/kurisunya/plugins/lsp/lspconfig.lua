@@ -10,9 +10,8 @@ if not cmp_nvim_lsp_status then
 	return
 end
 
+-- general settings
 local keymap = vim.keymap -- for conciseness
-
--- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
 	-- keybind options
 	local opts = { noremap = true, silent = true, buffer = bufnr }
@@ -28,16 +27,9 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
 	keymap.set("n", "\\", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
 end
--- used to enable autocompletion (assign to every lsp server config)
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
--- Change the Diagnostic symbols in the sign column (gutter)
-local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
-
+-- lsp-server settings
 lspconfig["clangd"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -55,10 +47,6 @@ lspconfig["pylsp"].setup({
 			},
 		},
 	},
-})
-lspconfig["jdtls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
 })
 lspconfig["lua_ls"].setup({
 	capabilities = capabilities,
@@ -79,3 +67,26 @@ lspconfig["lua_ls"].setup({
 		},
 	},
 })
+
+-- lsp-ui
+local function lspSymbol(name, icon)
+	local hl = "DiagnosticSign" .. name
+	vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
+end
+
+local lsp_ui = require("kurisunya.plugins.ui.lsp-ui")
+lspSymbol("Error", lsp_ui.diagnostics.icons.error)
+lspSymbol("Info", lsp_ui.diagnostics.icons.info)
+lspSymbol("Hint", lsp_ui.diagnostics.icons.hint)
+lspSymbol("Warn", lsp_ui.diagnostics.icons.warning)
+
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = false,
+})
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, lsp_ui.hover_actions)
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, lsp_ui.hover_actions)
