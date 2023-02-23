@@ -17,12 +17,12 @@ vim.wo.signcolumn = "yes"
 -- 显示右侧参考线
 vim.wo.colorcolumn = "80"
 -- Tab长度
-vim.o.tabstop = 4
-vim.bo.tabstop = 4
-vim.o.softtabstop = 4
+vim.o.tabstop = 2
+vim.bo.tabstop = 2
+vim.o.softtabstop = 2
 vim.o.shiftround = true
-vim.o.shiftwidth = 4
-vim.bo.shiftwidth = 4
+vim.o.shiftwidth = 2
+vim.bo.shiftwidth = 2
 -- 空格替代tab
 vim.o.expandtab = true
 vim.bo.expandtab = true
