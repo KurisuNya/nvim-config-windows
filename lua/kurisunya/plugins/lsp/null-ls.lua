@@ -29,6 +29,7 @@ null_ls.setup({
 		diagnostics.cpplint,
 		diagnostics.codespell,
 		diagnostics.commitlint,
+		diagnostics.semgrep,
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)

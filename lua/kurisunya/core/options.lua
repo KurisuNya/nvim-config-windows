@@ -62,7 +62,9 @@ vim.bo.autoread = true
 -- 显示左侧图标指示列
 vim.wo.signcolumn = "yes"
 -- 中英文自动切换
-vim.cmd("autocmd VimEnter * :silent :!C:\\im-select.exe 1033")
-vim.cmd("autocmd InsertEnter * :silent :!C:\\im-select.exe 2052")
-vim.cmd("autocmd InsertLeave * :silent :!C:\\im-select.exe 1033")
-vim.cmd("autocmd VimLeave * :silent :!C:\\im-select.exe 2052")
+local im_english = "C:\\im-select.exe 1033"
+local im_chinese = "C:\\im-select.exe 2052"
+vim.api.nvim_command("autocmd VimEnter * :silent :!" .. im_english)
+vim.api.nvim_command("autocmd InsertEnter * :silent :!" .. im_chinese)
+vim.api.nvim_command("autocmd InsertLeave * :silent :!" .. im_english)
+vim.api.nvim_command("autocmd VimLeave * :silent :!" .. im_chinese)

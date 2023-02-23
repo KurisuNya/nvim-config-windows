@@ -13,5 +13,5 @@ tn.setup({
 		keywords = { italic = true },
 	},
 })
-
-vim.cmd("colorscheme tokyonight-storm")
+local colorscheme = "tokyonight-storm"
+vim.api.nvim_command("colorscheme " .. colorscheme)

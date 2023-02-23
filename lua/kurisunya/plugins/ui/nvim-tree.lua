@@ -46,6 +46,11 @@ nvim_tree.setup({
 				col = 1,
 			},
 		},
+		-- 自定义列表中快捷键
+		mappings = {
+			custom_only = false,
+			list = list_keys,
+		},
 	},
 	renderer = {
 		add_trailing = false,
@@ -155,11 +160,6 @@ nvim_tree.setup({
 	-- 	side = "left",
 	-- 	-- 隐藏根目录
 	-- 	hide_root_folder = false,
-	-- 	-- 自定义列表中快捷键
-	-- 	mappings = {
-	-- 		custom_only = false,
-	-- 		list = list_keys,
-	-- 	},
 	-- 	-- 不显示行数
 	-- 	number = false,
 	-- 	relativenumber = false,
