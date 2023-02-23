@@ -18,8 +18,9 @@ null_ls.setup({
 	sources = {
 		-- formatters
 		formatting.clang_format.with({
-			filetypes = { "c", "cpp", "java" },
+			filetypes = { "c", "cpp" },
 		}),
+		formatting.google_java_format,
 		formatting.prettier.with({
 			disabled_filetypes = { "markdown" },
 		}),
@@ -29,7 +30,6 @@ null_ls.setup({
 		diagnostics.cpplint,
 		diagnostics.codespell,
 		diagnostics.commitlint,
-		diagnostics.semgrep,
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)
