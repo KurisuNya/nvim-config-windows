@@ -1,10 +1,9 @@
-local status, tn = pcall(require, "tokyonight")
+local status, tokyonight = pcall(require, "tokyonight")
 if not status then
 	print("Colorscheme not found!") -- print error if colorscheme not installed
 	return
 end
-
-tn.setup({
+tokyonight.setup({
 	style = "storm",
 	dim_inactive = true,
 	lualine_bold = true,

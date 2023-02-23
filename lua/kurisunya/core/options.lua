@@ -68,3 +68,7 @@ vim.api.nvim_command("autocmd VimEnter * :silent :!" .. im_english)
 vim.api.nvim_command("autocmd InsertEnter * :silent :!" .. im_chinese)
 vim.api.nvim_command("autocmd InsertLeave * :silent :!" .. im_english)
 vim.api.nvim_command("autocmd VimLeave * :silent :!" .. im_chinese)
+-- 光标闪烁
+local cursor_shape = "n-v-c:block,i-ci-ve:ver26,r-cr:hor20,o:hor50,"
+local cursor_blink = "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon17"
+vim.api.nvim_command("set guicursor=" .. cursor_shape .. cursor_blink)
