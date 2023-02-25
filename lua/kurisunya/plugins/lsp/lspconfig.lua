@@ -10,6 +10,13 @@ if not cmp_nvim_lsp_status then
 	return
 end
 
+-- import neodev plugin sadely
+local neodev_status, neodev = pcall(require, "neodev")
+if not neodev_status then
+	return
+end
+neodev.setup({})
+
 -- general settings
 local keymap = vim.keymap -- for conciseness
 local on_attach = function(client, bufnr)
@@ -25,7 +32,7 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
 	keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
 	keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
-	keymap.set("n", "\\", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
+	keymap.set("n", "H", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
 end
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
@@ -53,16 +60,19 @@ lspconfig["lua_ls"].setup({
 	on_attach = on_attach,
 	settings = { -- custom settings for lua
 		Lua = {
-			-- make the language server recognize "vim" global
-			diagnostics = {
-				globals = { "vim" },
-			},
-			workspace = {
-				-- make language server aware of runtime files
-				library = {
-					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-					[vim.fn.stdpath("config") .. "/lua"] = true,
-				},
+			-- -- make the language server recognize "vim" global
+			-- diagnostics = {
+			-- 	globals = { "vim" },
+			-- },
+			-- workspace = {
+			-- 	-- make language server aware of runtime files
+			-- 	library = {
+			-- 		[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+			-- 		[vim.fn.stdpath("config") .. "/lua"] = true,
+			-- 	},
+			-- },
+			completion = {
+				callSnippet = "Replace",
 			},
 		},
 	},

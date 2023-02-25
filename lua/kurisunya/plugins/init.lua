@@ -32,6 +32,7 @@ require("kurisunya.plugins.function.project")
 require("kurisunya.plugins.function.nvim-treesitter")
 require("kurisunya.plugins.function.telescope")
 require("kurisunya.plugins.function.highlightedyank")
+require("kurisunya.plugins.function.nvim-spectre")
 -- ui plugins
 require("kurisunya.plugins.ui.nvim-tree")
 require("kurisunya.plugins.ui.bufferline")

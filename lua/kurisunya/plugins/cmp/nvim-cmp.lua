@@ -45,16 +45,18 @@ cmp.setup({
 		["<Tab>"] = cmp.mapping.select_next_item(), -- next suggestion
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		---@diagnostic disable-next-line: missing-parameter
 		["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
 		["<C-e>"] = cmp.mapping.abort(), -- close completion window
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
 	}),
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp", priority = 2 },
+		{ name = "path", priority = 4 },
+		{ name = "nvim_lsp", priority = 3 },
 		{ name = "luasnip", priority = 2 },
-		{ name = "path", priority = 3 },
 		{ name = "buffer", priority = 2, max_item_count = 5 },
 		{ name = "nvim_lsp_signature_help", priority = 2 },
+		{ name = "nvim_lua", priority = 2 },
 		{
 			name = "spell",
 			priority = 1,
@@ -110,16 +112,16 @@ cmp.setup.cmdline(":", {
 cmp.setup.filetype({ "TelescopePrompt" }, {
 	sources = {},
 })
-cmp.setup.filetype({ "vim", "markdown" }, {
-	sources = {
-		{
-			name = "spell",
-			option = {
-				keep_all_entries = false,
-				enable_in_context = function()
-					return true
-				end,
-			},
-		},
-	},
-})
+-- cmp.setup.filetype({ "vim", "markdown" }, {
+-- 	sources = {
+-- 		{
+-- 			name = "spell",
+-- 			option = {
+-- 				keep_all_entries = false,
+-- 				enable_in_context = function()
+-- 					return true
+-- 				end,
+-- 			},
+-- 		},
+-- 	},
+-- })

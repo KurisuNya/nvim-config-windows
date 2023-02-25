@@ -166,6 +166,21 @@ keymap.set(
 	"<leader>gfs",
 	"<cmd>Gitsigns toggle_linehl<cr><cmd>Gitsigns toggle_numhl<cr><cmd>Gitsigns toggle_deleted<cr><cmd>Gitsigns toggle_word_diff<cr>"
 )
+----------------
+--  diffview  --
+----------------
+keymap.set("n", "<leader>vd", "<cmd>DiffviewOpen<CR>")
+keymap.set("n", "<leader>cd", "<cmd>DiffviewClose<CR>")
+keymap.set("n", "<leader>vfh", "<cmd>DiffviewFileHistory<CR>")
+----------------------
+--  accelerated-jk  --
+keymap.set("n", "j", "<Plug>(accelerated_jk_gj)")
+keymap.set("n", "k", "<Plug>(accelerated_jk_gk)")
+----------------------
+--------------------
+--  nvim-spectre  --
+--------------------
+keymap.set("n", "<leader>R", "<cmd>lua require('spectre').open()<CR>")
 -----------------
 --  nvim-tree  --
 -----------------
