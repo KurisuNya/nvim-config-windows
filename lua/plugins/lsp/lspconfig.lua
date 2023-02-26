@@ -84,7 +84,7 @@ local function lspSymbol(name, icon)
 	vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
 end
 
-local lsp_ui = require("kurisunya.plugins.ui.lsp-ui")
+local lsp_ui = require("plugins.ui.lsp-ui")
 lspSymbol("Error", lsp_ui.diagnostics.icons.error)
 lspSymbol("Info", lsp_ui.diagnostics.icons.info)
 lspSymbol("Hint", lsp_ui.diagnostics.icons.hint)

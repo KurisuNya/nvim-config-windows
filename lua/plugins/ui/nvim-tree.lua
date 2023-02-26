@@ -9,7 +9,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- 列表操作快捷键
-local list_keys = require("kurisunya.core.keymaps").nvimTreeList
+local list_keys = require("core.keymaps").nvimTreeList
 
 nvim_tree.setup({
 	create_in_closed_folder = false,

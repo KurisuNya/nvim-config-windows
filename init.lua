@@ -1,10 +1,10 @@
 ------ leader-key ------
 vim.g.mapleader = " "
 ------ user-plugins ------
-require("kurisunya.plugins")
+require("plugins")
 ------ user-options ------
-require("kurisunya.core.options")
+require("core.options")
 ------ user-keymap ------
-require("kurisunya.core.keymaps")
+require("core.keymaps")
 ------ user-theme ------
-require("kurisunya.core.colorscheme")
+require("core.colorscheme")

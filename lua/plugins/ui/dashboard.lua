@@ -162,12 +162,12 @@ db.custom_center = {
 	{
 		icon = "  ",
 		desc = "Edit keymaps                        ",
-		action = "edit ~/AppData/Local/nvim/lua/kurisunya/core/keymaps.lua",
+		action = "edit ~/AppData/Local/nvim/lua/core/keymaps.lua",
 	},
 	-- {
 	-- 	icon = "  ",
 	-- 	desc = "Edit plugins                        ",
-	-- 	action = "edit ~/AppData/Local/nvim/lua/kurisunya/plugins/plugins.lua",
+	-- 	action = "edit ~/AppData/Local/nvim/lua/plugins/plugins.lua",
 	-- },
 }
 
