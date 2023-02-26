@@ -1,6 +1,4 @@
 ------ option-setting ------
--- 使用系统剪切板
-vim.opt.clipboard:append("unnamedplus")
 -- 使用utf8编码格式
 vim.g.encoding = "UTF-8"
 vim.o.fileencoding = "utf-8"
@@ -72,3 +70,5 @@ vim.api.nvim_command("autocmd VimLeave * :silent :!" .. im_chinese)
 local cursor_shape = "n-v-c:block,i-ci-ve:ver26,r-cr:hor20,o:hor50,"
 local cursor_blink = "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon17"
 vim.api.nvim_command("set guicursor=" .. cursor_shape .. cursor_blink)
+-- 命令行不显示
+vim.opt.cmdheight = 0

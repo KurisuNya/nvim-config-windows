@@ -188,15 +188,12 @@ keymap.set("n", "<leader>R", "<cmd>lua require('spectre').open()<CR>")
 keymap.set("n", "<leader><Tab>", ":NvimTreeToggle<CR>")
 --快捷键
 pluginKeys.nvimTreeList = {
-	-- 打开文件或文件夹
 	{ key = { "<CR>", "o", "<2-LeftMouse>" }, action = "edit" },
-	-- 分屏打开文件
 	{ key = "v", action = "vsplit" },
 	{ key = "h", action = "split" },
-	-- 显示隐藏文件
-	{ key = "i", action = "toggle_custom" }, -- 对应 filters 中的 custom (node_modules)
+	{ key = "i", action = "cd" },
+	{ key = "u", action = "dir_up" },
 	{ key = ".", action = "toggle_dotfiles" }, -- Hide (dotfiles)
-	-- 文件操作
 	{ key = "<F5>", action = "refresh" },
 	{ key = "a", action = "create" },
 	{ key = "d", action = "remove" },
