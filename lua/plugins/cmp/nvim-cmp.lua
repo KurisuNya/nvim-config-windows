@@ -19,6 +19,7 @@ end
 -- load vs-code like snippets from plugins (e.g. friendly-snippets)
 require("luasnip/loaders/from_vscode").lazy_load()
 
+local keymaps = require("core.keymaps").nvim_cmp
 vim.opt.completeopt = "menu,menuone,noselect"
 
 cmp.setup({
@@ -39,17 +40,18 @@ cmp.setup({
 			luasnip.lsp_expand(args.body)
 		end,
 	},
-	-- extra-keymaps
+
 	mapping = cmp.mapping.preset.insert({
-		["<S-Tab>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-		["<Tab>"] = cmp.mapping.select_next_item(), -- next suggestion
-		["<C-b>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		[keymaps.select_prev_item] = cmp.mapping.select_prev_item(),
+		[keymaps.select_next_item] = cmp.mapping.select_next_item(),
+		[keymaps.scroll_docs_up] = cmp.mapping.scroll_docs(-4),
+		[keymaps.scroll_docs_down] = cmp.mapping.scroll_docs(4),
 		---@diagnostic disable-next-line: missing-parameter
-		["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-		["<C-e>"] = cmp.mapping.abort(), -- close completion window
-		["<CR>"] = cmp.mapping.confirm({ select = false }),
+		[keymaps.complete] = cmp.mapping.complete(),
+		[keymaps.abort] = cmp.mapping.abort(),
+		[keymaps.confirm] = cmp.mapping.confirm({ select = false }),
 	}),
+
 	sources = cmp.config.sources({
 		{ name = "path", priority = 4 },
 		{ name = "nvim_lsp", priority = 3 },
@@ -112,16 +114,16 @@ cmp.setup.cmdline(":", {
 cmp.setup.filetype({ "TelescopePrompt" }, {
 	sources = {},
 })
--- cmp.setup.filetype({ "vim", "markdown" }, {
--- 	sources = {
--- 		{
--- 			name = "spell",
--- 			option = {
--- 				keep_all_entries = false,
--- 				enable_in_context = function()
--- 					return true
--- 				end,
--- 			},
--- 		},
--- 	},
--- })
+cmp.setup.filetype({ "markdown" }, {
+	sources = {
+		{
+			name = "spell",
+			option = {
+				keep_all_entries = false,
+				enable_in_context = function()
+					return true
+				end,
+			},
+		},
+	},
+})

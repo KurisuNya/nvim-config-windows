@@ -9,7 +9,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- 列表操作快捷键
-local list_keys = require("core.keymaps").nvimTreeList
+local keys = require("core.keymaps").nvim_tree
 
 nvim_tree.setup({
 	create_in_closed_folder = false,
@@ -49,7 +49,7 @@ nvim_tree.setup({
 		-- 自定义列表中快捷键
 		mappings = {
 			custom_only = false,
-			list = list_keys,
+			list = keys,
 		},
 	},
 	renderer = {
@@ -100,7 +100,7 @@ nvim_tree.setup({
 			global = false,
 		},
 		open_file = {
-			quit_on_open = true,
+			quit_on_open = false,
 			resize_window = false,
 			window_picker = {
 				enable = true,
@@ -152,34 +152,8 @@ nvim_tree.setup({
 		show_on_dirs = true,
 		timeout = 400,
 	},
-
-	-- view = {
-	-- 	-- 宽度
-	-- 	width = 30,
-	-- 	-- 也可以 'right'
-	-- 	side = "left",
-	-- 	-- 隐藏根目录
-	-- 	hide_root_folder = false,
-	-- 	-- 不显示行数
-	-- 	number = false,
-	-- 	relativenumber = false,
-	-- 	-- 显示图标
-	-- 	signcolumn = "yes",
-	-- },
-	-- actions = {
-	-- 	open_file = {
-	-- 		-- disable window_picker for
-	-- 		-- explorer to work well with
-	-- 		-- window splits
-	-- 		window_picker = {
-	-- 			enable = false,
-	-- 		},
-	-- 		-- 首次打开大小适配
-	-- 		resize_window = true,
-	-- 		-- 打开文件时关闭
-	-- 		quit_on_open = true,
-	-- 	},
-	-- },
 })
 
--- vim.cmd([[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]])
+local auto_quit =
+	"autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif"
+vim.api.nvim_command(auto_quit)
