@@ -1,6 +1,7 @@
 return {
 	--dependence
 	"nvim-lua/plenary.nvim",
+	"kkharji/sqlite.lua",
 	--theme
 	"folke/tokyonight.nvim",
 	--ui
@@ -10,7 +11,6 @@ return {
 	"akinsho/bufferline.nvim",
 	"nvim-lualine/lualine.nvim",
 	"arkav/lualine-lsp-progress",
-	"AbaoFromCUG/dashboard-nvim",
 	"lukas-reineke/indent-blankline.nvim",
 	"p00f/nvim-ts-rainbow",
 	"RRethy/vim-illuminate",
@@ -41,6 +41,10 @@ return {
 	"folke/neodev.nvim",
 	--tool
 	{
+		"AbaoFromCUG/dashboard-nvim",
+		event = "VeryLazy",
+	},
+	{
 		"ahmedkhalf/project.nvim",
 		event = "VeryLazy",
 	},
@@ -63,6 +67,10 @@ return {
 	},
 	{
 		"debugloop/telescope-undo.nvim",
+		event = "VeryLazy",
+	},
+	{
+		"nvim-telescope/telescope-frecency.nvim",
 		event = "VeryLazy",
 	},
 	{

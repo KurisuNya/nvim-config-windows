@@ -38,19 +38,23 @@ db.custom_header = {
 	[[]],
 	[[]],
 	[[]],
-	[[]],
 }
 
 db.custom_center = {
 	{
 		icon = "  ",
-		desc = "Projects                            ",
+		desc = "Project find                        ",
 		action = "Telescope projects",
 	},
 	{
 		icon = "  ",
-		desc = "Recently files                      ",
+		desc = "File history                        ",
 		action = "Telescope oldfiles",
+	},
+	{
+		icon = "  ",
+		desc = "File frecency                       ",
+		action = "Telescope frecency",
 	},
 	{
 		icon = "  ",
