@@ -1,4 +1,8 @@
------- option-setting ------
+---------------
+--  options  --
+---------------
+-- 使用系统剪切板
+vim.opt.clipboard:append("unnamedplus")
 -- 使用utf8编码格式
 vim.g.encoding = "UTF-8"
 vim.o.fileencoding = "utf-8"
@@ -44,6 +48,7 @@ vim.o.swapfile = false
 -- 更小更新时间
 vim.o.updatetime = 300
 -- 键盘快捷键连击时间
+vim.o.timeout = true
 vim.o.timeoutlen = 1000
 -- 分屏方向
 vim.o.splitbelow = true
@@ -72,3 +77,21 @@ local cursor_blink = "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:bl
 vim.api.nvim_command("set guicursor=" .. cursor_shape .. cursor_blink)
 -- 命令行不显示
 vim.opt.cmdheight = 0
+-- 关闭新行注释
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+	pattern = "*",
+	callback = function()
+		vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" }
+	end,
+})
+-- 重新打开恢复光标
+local lastplace = "silent! foldopen"
+vim.api.nvim_create_autocmd("BufReadPost", {
+	pattern = "*",
+	callback = function()
+		if vim.fn.line("'\"") > 0 and vim.fn.line("'\"") <= vim.fn.line("$") then
+			vim.fn.setpos(".", vim.fn.getpos("'\""))
+			vim.cmd(lastplace)
+		end
+	end,
+})

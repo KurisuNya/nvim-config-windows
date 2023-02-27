@@ -16,6 +16,7 @@ require("core.keymaps.troubles")
 require("core.keymaps.vim-maxmizer")
 ----  by return  ----
 local plugin_keymap = {} --start
+plugin_keymap.better_escape = require("core.keymaps.better-escape")
 plugin_keymap.lspconfig = require("core.keymaps.lspconfig")
 plugin_keymap.nvim_cmp = require("core.keymaps.nvim-cmp")
 plugin_keymap.nvim_spectre = require("core.keymaps.nvim-spectre")

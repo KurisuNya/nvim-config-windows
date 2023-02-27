@@ -22,20 +22,10 @@ require("lazy").setup("plugins.plugins")
 --                     --
 -------------------------
 -- cmp plugins
-require("plugins.cmp.nvim-cmp")
-require("plugins.cmp.autopairs")
+require("plugins.cmp")
 -- lsp plugins
-require("plugins.lsp.lspconfig")
-require("plugins.lsp.null-ls")
+require("plugins.lsp")
 -- function plugins
-require("plugins.function.project")
-require("plugins.function.nvim-treesitter")
-require("plugins.function.telescope")
-require("plugins.function.highlightedyank")
-require("plugins.function.nvim-spectre")
+require("plugins.tool")
 -- ui plugins
-require("plugins.ui.nvim-tree")
-require("plugins.ui.bufferline")
-require("plugins.ui.lualine")
-require("plugins.ui.dashboard")
-require("plugins.ui.gitsigns")
+require("plugins.ui")

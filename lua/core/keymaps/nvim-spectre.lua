@@ -2,7 +2,8 @@
 --  nvim-spectre  --
 --------------------
 local keymap = vim.keymap
-keymap.set("n", "<leader>R", "<cmd>lua require('spectre').open()<CR>")
+local opts = { noremap = true, silent = true }
+keymap.set("n", "<leader>R", "<cmd>lua require('spectre').open()<CR>", opts)
 local M = {
 	["toggle_line"] = {
 		map = "dd",

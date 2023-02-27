@@ -1,91 +1,83 @@
 return {
-	--依赖
+	--dependence
 	"nvim-lua/plenary.nvim",
-	--主题
+	--theme
 	"folke/tokyonight.nvim",
-	"ayu-theme/ayu-vim",
-	--UI
+	--ui
 	"moll/vim-bbye",
-	"kyazdani42/nvim-tree.lua",
 	"kyazdani42/nvim-web-devicons",
+	"onsails/lspkind.nvim",
 	"akinsho/bufferline.nvim",
 	"nvim-lualine/lualine.nvim",
 	"arkav/lualine-lsp-progress",
 	"AbaoFromCUG/dashboard-nvim",
-	"onsails/lspkind.nvim",
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			require("indent_blankline").setup({
-				space_char_blankline = " ",
-				show_current_context = true,
-			})
-		end,
-	},
-	{
-		"p00f/nvim-ts-rainbow",
-		dependencies = "nvim-treesitter",
-	},
+	"lukas-reineke/indent-blankline.nvim",
+	"p00f/nvim-ts-rainbow",
 	"RRethy/vim-illuminate",
-	"lewis6991/gitsigns.nvim",
-	--自动补全
+	--cmp
 	"hrsh7th/nvim-cmp",
+	"L3MON4D3/LuaSnip",
+	"rafamadriz/friendly-snippets",
+	"windwp/nvim-autopairs",
+	"lukas-reineke/cmp-under-comparator",
+	"windwp/nvim-ts-autotag",
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-path",
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-nvim-lsp-signature-help",
-	"L3MON4D3/LuaSnip",
-	"saadparwaiz1/cmp_luasnip",
-	"rafamadriz/friendly-snippets",
-	"windwp/nvim-autopairs",
-	"lukas-reineke/cmp-under-comparator",
 	"hrsh7th/cmp-cmdline",
 	"f3fora/cmp-spell",
 	"hrsh7th/cmp-nvim-lua",
-	{
-		"windwp/nvim-ts-autotag",
-		dependencies = "nvim-treesitter",
-	},
-	--LSP
-	{
-		"williamboman/mason.nvim",
-		config = function()
-			require("mason").setup()
-		end,
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		config = function()
-			require("mason-lspconfig").setup()
-		end,
-	},
+	"saadparwaiz1/cmp_luasnip",
+	--lsp
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
-	{
-		"glepnir/lspsaga.nvim",
-		event = "BufRead",
-		config = function()
-			require("lspsaga").setup({})
-		end,
-	},
+	"glepnir/lspsaga.nvim",
 	"jose-elias-alvarez/null-ls.nvim",
 	"jayp0521/mason-null-ls.nvim",
 	"folke/trouble.nvim",
 	"mfussenegger/nvim-jdtls",
 	"folke/neodev.nvim",
-	--功能性
-	"ahmedkhalf/project.nvim",
-	"nvim-telescope/telescope.nvim",
+	--tool
+	{
+		"ahmedkhalf/project.nvim",
+		event = "VeryLazy",
+	},
+	{
+		"lewis6991/gitsigns.nvim",
+		event = "VeryLazy",
+	},
+	{
+		"kyazdani42/nvim-tree.lua",
+		event = "VeryLazy",
+	},
+	{
+		"nvim-telescope/telescope.nvim",
+		event = "VeryLazy",
+	},
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
 		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+		event = "VeryLazy",
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		event = "VeryLazy",
 	},
-	"szw/vim-maximizer",
-	"machakann/vim-highlightedyank",
-	"tpope/vim-surround",
+	{
+		"szw/vim-maximizer",
+		event = "VeryLazy",
+	},
+	{
+		"machakann/vim-highlightedyank",
+		event = "VeryLazy",
+	},
+	{
+		"tpope/vim-surround",
+		event = "VeryLazy",
+	},
 	{
 		"iamcco/markdown-preview.nvim",
 		build = "cd app && npm install",
@@ -96,67 +88,35 @@ return {
 	},
 	{
 		"nacro90/numb.nvim",
-		config = function()
-			require("numb").setup()
-		end,
+		event = "VeryLazy",
 	},
-	"sindrets/diffview.nvim",
-	"nvim-pack/nvim-spectre",
+	{
+		"sindrets/diffview.nvim",
+		event = "VeryLazy",
+	},
+	{
+		"nvim-pack/nvim-spectre",
+		event = "VeryLazy",
+	},
 	{
 		"karb94/neoscroll.nvim",
-		config = function()
-			require("neoscroll").setup()
-		end,
+		event = "VeryLazy",
 	},
 	{
 		"folke/which-key.nvim",
-		config = function()
-			vim.o.timeout = true
-			vim.o.timeoutlen = 300
-			require("which-key").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
-		end,
-	},
-	{
-		"rainbowhxch/accelerated-jk.nvim",
-		config = function()
-			require("accelerated-jk").setup({
-				mode = "time_driven",
-				enable_deceleration = false,
-				acceleration_motions = {},
-				acceleration_limit = 60,
-				acceleration_table = { 7, 12, 17, 21, 24, 26, 28, 30 },
-				-- when 'enable_deceleration = true', 'deceleration_table = { {200, 3}, {300, 7}, {450, 11}, {600, 15}, {750, 21}, {900, 9999} }'
-				deceleration_table = { { 60, 9999 } },
-			})
-		end,
+		event = "VeryLazy",
 	},
 	{
 		"max397574/better-escape.nvim",
-		config = function()
-			require("better_escape").setup({
-				mapping = { "jk", "jj" },
-				timeout = 400,
-				clear_empty_lines = false,
-				keys = "<Esc>",
-			})
-		end,
+		event = "VeryLazy",
 	},
-	--快捷操作
 	{
 		"phaazon/hop.nvim",
 		branch = "v2",
-		config = function()
-			require("hop").setup({})
-		end,
+		event = "VeryLazy",
 	},
 	{
 		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup()
-		end,
+		event = "VeryLazy",
 	},
 }

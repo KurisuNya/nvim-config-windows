@@ -1,3 +1,6 @@
+------------------
+-- colorscheme  --
+------------------
 local status, tokyonight = pcall(require, "tokyonight")
 if not status then
 	print("Colorscheme not found!") -- print error if colorscheme not installed

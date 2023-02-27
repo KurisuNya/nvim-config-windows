@@ -19,7 +19,7 @@ end
 -- load vs-code like snippets from plugins (e.g. friendly-snippets)
 require("luasnip/loaders/from_vscode").lazy_load()
 
-local keymaps = require("core.keymaps").nvim_cmp
+local map_list = require("core.keymaps").nvim_cmp
 vim.opt.completeopt = "menu,menuone,noselect"
 
 cmp.setup({
@@ -42,14 +42,14 @@ cmp.setup({
 	},
 
 	mapping = cmp.mapping.preset.insert({
-		[keymaps.select_prev_item] = cmp.mapping.select_prev_item(),
-		[keymaps.select_next_item] = cmp.mapping.select_next_item(),
-		[keymaps.scroll_docs_up] = cmp.mapping.scroll_docs(-4),
-		[keymaps.scroll_docs_down] = cmp.mapping.scroll_docs(4),
+		[map_list.select_prev_item] = cmp.mapping.select_prev_item(),
+		[map_list.select_next_item] = cmp.mapping.select_next_item(),
+		[map_list.scroll_docs_up] = cmp.mapping.scroll_docs(-4),
+		[map_list.scroll_docs_down] = cmp.mapping.scroll_docs(4),
 		---@diagnostic disable-next-line: missing-parameter
-		[keymaps.complete] = cmp.mapping.complete(),
-		[keymaps.abort] = cmp.mapping.abort(),
-		[keymaps.confirm] = cmp.mapping.confirm({ select = false }),
+		[map_list.complete] = cmp.mapping.complete(),
+		[map_list.abort] = cmp.mapping.abort(),
+		[map_list.confirm] = cmp.mapping.confirm({ select = false }),
 	}),
 
 	sources = cmp.config.sources({

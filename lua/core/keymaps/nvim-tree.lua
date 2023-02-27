@@ -2,7 +2,9 @@
 --  nvim-tree  --
 -----------------
 --开关
-vim.keymap.set("n", "<leader><Tab>", ":NvimTreeToggle<CR>")
+local keymap = vim.keymap
+local opts = { noremap = true, silent = true }
+keymap.set("n", "<leader><Tab>", ":NvimTreeToggle<CR>", opts)
 --快捷键
 return {
 	{ key = { "<CR>", "o", "<2-LeftMouse>" }, action = "edit" },
