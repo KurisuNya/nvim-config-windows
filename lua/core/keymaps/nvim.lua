@@ -50,6 +50,7 @@ keymap.set("n", "J", "5j", opts)
 keymap.set("n", "K", "5k", opts)
 keymap.set("n", "<S-Down>", "5j", opts)
 keymap.set("n", "<S-Up>", "5k", opts)
+keymap.set("n", "'", "%", opts)
 --取消高亮
 keymap.set("n", "<leader>/", ":noh<cr>", opts)
 --删除单字不复制

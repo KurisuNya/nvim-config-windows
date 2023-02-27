@@ -9,10 +9,14 @@ vim.g.loaded_netrwPlugin = 1
 
 -- 列表操作快捷键
 local keys = require("core.keymaps").nvim_tree
-
 nvim_tree.setup({
+	sync_root_with_cwd = true,
+	respect_buf_cwd = true,
+	update_focused_file = {
+		enable = true,
+		update_root = true,
+	},
 	create_in_closed_folder = false,
-	respect_buf_cwd = false,
 	auto_reload_on_write = true,
 	disable_netrw = false,
 	hijack_cursor = true,
@@ -23,7 +27,6 @@ nvim_tree.setup({
 	open_on_setup_file = false,
 	open_on_tab = false,
 	sort_by = "name",
-	sync_root_with_cwd = true,
 	view = {
 		adaptive_size = false,
 		centralize_selection = false,

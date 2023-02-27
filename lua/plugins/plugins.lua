@@ -4,6 +4,9 @@ return {
 	"kkharji/sqlite.lua",
 	--theme
 	"folke/tokyonight.nvim",
+	"rebelot/kanagawa.nvim",
+	"sainnhe/everforest",
+	{ "catppuccin/nvim", name = "catppuccin" },
 	--ui
 	"moll/vim-bbye",
 	"kyazdani42/nvim-web-devicons",
@@ -129,6 +132,14 @@ return {
 	},
 	{
 		"numToStr/Comment.nvim",
+		event = "VeryLazy",
+	},
+	{
+		"andymass/vim-matchup",
+		event = "VeryLazy",
+	},
+	{
+		"norcalli/nvim-colorizer.lua",
 		event = "VeryLazy",
 	},
 }

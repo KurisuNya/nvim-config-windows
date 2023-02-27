@@ -17,10 +17,3 @@ project.setup({
 	scope_chdir = "global",
 	datapath = vim.fn.stdpath("data"),
 })
-
-local status, telescope = pcall(require, "telescope")
-if not status then
-	vim.notify("没有找到 telescope")
-	return
-end
-pcall(telescope.load_extension, "projects")

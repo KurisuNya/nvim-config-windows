@@ -15,5 +15,9 @@ tokyonight.setup({
 		keywords = { italic = true },
 	},
 })
-local colorscheme = "tokyonight-storm"
-vim.api.nvim_command("colorscheme " .. colorscheme)
+-- vim.cmd.colorscheme("everforest")
+vim.cmd.colorscheme("tokyonight-storm")
+local M = {}
+-- M.lualine = "everforest"
+M.lualine = "tokyonight"
+return M

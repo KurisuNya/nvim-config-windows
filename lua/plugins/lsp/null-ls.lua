@@ -6,8 +6,9 @@ end
 
 -- for conciseness
 
-local formatting = null_ls.builtins.formatting -- to setup formatters
-local diagnostics = null_ls.builtins.diagnostics -- to setup linters
+local formatting = null_ls.builtins.formatting
+local diagnostics = null_ls.builtins.diagnostics
+local code_action = null_ls.builtins.code_actions
 
 -- to setup format on save
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -16,6 +17,8 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
 	-- setup formatters & linters
 	sources = {
+		-- code_action
+		code_action.gitsigns,
 		-- formatters
 		formatting.clang_format.with({
 			filetypes = { "c", "cpp" },

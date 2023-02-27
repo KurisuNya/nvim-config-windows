@@ -1,12 +1,12 @@
--- 如果找不到lualine 组件，就不继续执行
 local status, lualine = pcall(require, "lualine")
 if not status then
 	return
 end
 
+local lualine_theme = require("core.colorscheme").lualine
 lualine.setup({
 	options = {
-		theme = "tokyonight",
+		theme = lualine_theme,
 		component_separators = { left = "|", right = "|" },
 		-- https://github.com/ryanoasis/powerline-extra-symbols
 		section_separators = { left = " ", right = "" },
@@ -24,15 +24,10 @@ lualine.setup({
 			"filesize",
 			{
 				"fileformat",
-				-- symbols = {
-				--   unix = '', -- e712
-				--   dos = '', -- e70f
-				--   mac = '', -- e711
-				-- },
 				symbols = {
-					unix = "LF",
-					dos = "CRLF",
-					mac = "CR",
+					unix = "LF ",
+					dos = "CRLF ",
+					mac = "CR ",
 				},
 			},
 			"encoding",

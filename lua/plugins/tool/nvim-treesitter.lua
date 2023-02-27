@@ -16,6 +16,9 @@ treesitter.setup({
 	autotag = {
 		enable = true,
 	},
+	matchup = {
+		enable = true,
+	},
 })
 -- 开启 Folding 模块
 vim.opt.foldmethod = "expr"
