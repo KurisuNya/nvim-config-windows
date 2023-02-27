@@ -62,6 +62,10 @@ return {
 		event = "VeryLazy",
 	},
 	{
+		"debugloop/telescope-undo.nvim",
+		event = "VeryLazy",
+	},
+	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		event = "VeryLazy",

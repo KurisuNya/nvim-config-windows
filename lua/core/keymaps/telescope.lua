@@ -25,3 +25,5 @@ keymap.set("n", "<leader>gfc", ":Telescope git_bcommits<cr>", opts)
 keymap.set("n", "<leader>gb", ":Telescope git_branches<cr>", opts)
 --查看git-status
 keymap.set("n", "<leader>gs", ":Telescope git_status<cr>", opts)
+--undo-tree
+keymap.set("n", "<leader>u", ":Telescope undo<cr>", opts)
