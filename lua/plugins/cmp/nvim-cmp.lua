@@ -16,8 +16,8 @@ if not lspkind_status then
 	return
 end
 
--- load vs-code like snippets from plugins (e.g. friendly-snippets)
-require("luasnip/loaders/from_vscode").lazy_load()
+-- load vs-code like snippets from friendly-snippets
+require("luasnip.loaders.from_vscode").lazy_load()
 
 local map_list = require("core.keymaps").nvim_cmp
 vim.opt.completeopt = "menu,menuone,noselect"

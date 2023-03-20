@@ -95,3 +95,8 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 		end
 	end,
 })
+-- 设置neovide字体
+if vim.g.neovide then
+	vim.o.guifont = "DejaVuSansMono Nerd Font:h12"
+	vim.g.neovide_fullscreen = true
+end

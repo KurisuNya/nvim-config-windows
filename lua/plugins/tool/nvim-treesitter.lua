@@ -4,6 +4,19 @@ if not status then
 end
 
 treesitter.setup({
+	--默认安装
+	ensure_installed = {
+		"c",
+		"comment",
+		"cpp",
+		"gitcommit",
+		"gitignore",
+		"java",
+		"lua",
+		"markdown",
+		"markdown_inline",
+		"python",
+	},
 	-- 启用代码高亮模块
 	highlight = {
 		enable = true,

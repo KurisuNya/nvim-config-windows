@@ -131,6 +131,10 @@ return {
 		event = "VeryLazy",
 	},
 	{
+		"bkad/CamelCaseMotion",
+		event = "VeryLazy",
+	},
+	{
 		"numToStr/Comment.nvim",
 		event = "VeryLazy",
 	},

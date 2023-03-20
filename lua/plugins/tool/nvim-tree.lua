@@ -10,12 +10,12 @@ vim.g.loaded_netrwPlugin = 1
 -- 列表操作快捷键
 local keys = require("core.keymaps").nvim_tree
 nvim_tree.setup({
-	sync_root_with_cwd = true,
-	respect_buf_cwd = true,
-	update_focused_file = {
-		enable = true,
-		update_root = true,
-	},
+	-- sync_root_with_cwd = true,
+	-- respect_buf_cwd = true,
+	-- update_focused_file = {
+	-- 	enable = true,
+	-- 	update_root = true,
+	-- },
 	create_in_closed_folder = false,
 	auto_reload_on_write = true,
 	disable_netrw = false,
@@ -150,7 +150,7 @@ nvim_tree.setup({
 	},
 	git = {
 		enable = true,
-		ignore = true,
+		ignore = false,
 		show_on_dirs = true,
 		timeout = 400,
 	},

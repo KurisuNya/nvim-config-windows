@@ -1,4 +1,4 @@
 local M = {}
-M.mapping = { "jk", "jj" }
+M.mapping = { "jk" }
 M.keys = "<Esc>"
 return M

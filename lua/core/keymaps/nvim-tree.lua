@@ -4,7 +4,7 @@
 --开关
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
-keymap.set("n", "<leader><Tab>", ":NvimTreeToggle<CR>", opts)
+keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 --快捷键
 return {
 	{ key = { "<CR>", "o", "<2-LeftMouse>" }, action = "edit" },
@@ -12,6 +12,7 @@ return {
 	{ key = "h", action = "split" },
 	{ key = "i", action = "cd" },
 	{ key = "u", action = "dir_up" },
+	{ key = "g", action = "toggle_custom" }, -- Hide (dotfiles)
 	{ key = ".", action = "toggle_dotfiles" }, -- Hide (dotfiles)
 	{ key = "<F5>", action = "refresh" },
 	{ key = "a", action = "create" },

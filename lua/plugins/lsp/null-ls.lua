@@ -18,7 +18,7 @@ null_ls.setup({
 	-- setup formatters & linters
 	sources = {
 		-- code_action
-		code_action.gitsigns,
+		-- code_action.gitsigns,
 		-- formatters
 		formatting.clang_format.with({
 			filetypes = { "c", "cpp" },

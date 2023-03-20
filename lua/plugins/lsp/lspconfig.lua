@@ -26,6 +26,10 @@ lspconfig["clangd"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
+lspconfig["arduino_language_server"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
 lspconfig["pylsp"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
