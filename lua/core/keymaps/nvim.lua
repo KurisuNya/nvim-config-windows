@@ -38,8 +38,8 @@ keymap.set("n", "<A-Down>", ":resize +2<CR>", opts)
 keymap.set("n", "<A-Up>", ":resize -2<CR>", opts)
 keymap.set("n", "<A-=>", "<C-w>=", opts)
 --打开终端
-keymap.set("n", "<leader>t", ":sp term://powershell<CR>", opts)
-keymap.set("n", "<leader>vt", ":vsp term://powershell<CR>", opts)
+keymap.set("n", "<leader>t", ":sp term://pwsh<CR>", opts)
+keymap.set("n", "<leader>vt", ":vsp term://pwsh<CR>", opts)
 --行操作
 keymap.set("n", "<Enter>", 'O<Esc>"_cc<Esc>j', opts)
 keymap.set("n", "<leader><Enter>", 'o<Esc>"_cc<Esc>', opts)
