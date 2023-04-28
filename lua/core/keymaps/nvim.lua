@@ -69,7 +69,6 @@ keymap.set("v", "<S-Down>", ":move '>+1<CR>gv-gv", opts)
 keymap.set("v", "<S-Up>", ":move '<-2<CR>gv-gv", opts)
 --修复黏贴问题
 keymap.set("v", "p", '"_dP', opts)
-keymap.set("v", "p", '"_dP', opts)
 ----------------------
 --   terminal-mod   --
 ----------------------

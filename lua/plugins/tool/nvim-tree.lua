@@ -9,24 +9,23 @@ vim.g.loaded_netrwPlugin = 1
 
 -- 列表操作快捷键
 local keys = require("core.keymaps").nvim_tree
+-- sync_root_with_cwd = true,
+-- respect_buf_cwd = true,
+-- update_focused_file = {
+-- 	enable = true,
+-- 	update_root = true,
+-- },
 nvim_tree.setup({
-	-- sync_root_with_cwd = true,
-	-- respect_buf_cwd = true,
-	-- update_focused_file = {
-	-- 	enable = true,
-	-- 	update_root = true,
-	-- },
-	create_in_closed_folder = false,
 	auto_reload_on_write = true,
+	create_in_closed_folder = false,
 	disable_netrw = false,
 	hijack_cursor = true,
 	hijack_netrw = true,
 	hijack_unnamed_buffer_when_opening = true,
-	ignore_buffer_on_setup = false,
-	open_on_setup = false,
-	open_on_setup_file = false,
 	open_on_tab = false,
+	respect_buf_cwd = false,
 	sort_by = "name",
+	sync_root_with_cwd = true,
 	view = {
 		adaptive_size = false,
 		centralize_selection = false,
@@ -36,7 +35,6 @@ nvim_tree.setup({
 		number = false,
 		relativenumber = false,
 		signcolumn = "yes",
-		hide_root_folder = false,
 		float = {
 			enable = false,
 			open_win_config = {
@@ -48,7 +46,6 @@ nvim_tree.setup({
 				col = 1,
 			},
 		},
-		-- 自定义列表中快捷键
 		mappings = {
 			custom_only = false,
 			list = keys,
@@ -83,13 +80,41 @@ nvim_tree.setup({
 			},
 			padding = " ",
 			symlink_arrow = "  ",
+			glyphs = {
+				default = "",
+				symlink = "",
+				bookmark = "",
+				git = {
+					unstaged = "",
+					staged = "",
+					unmerged = "שׂ",
+					renamed = "",
+					untracked = "ﲉ",
+					deleted = "",
+					ignored = "",
+				},
+				folder = {
+					arrow_open = "",
+					arrow_closed = "",
+					default = "",
+					open = "",
+					empty = "",
+					empty_open = "",
+					symlink = "",
+					symlink_open = "",
+				},
+			},
 		},
 	},
 	hijack_directories = {
 		enable = true,
 		auto_open = true,
 	},
-	ignore_ft_on_setup = {},
+	update_focused_file = {
+		enable = true,
+		update_root = true,
+		ignore_list = {},
+	},
 	filters = {
 		dotfiles = false,
 		custom = { ".DS_Store" },
@@ -102,7 +127,7 @@ nvim_tree.setup({
 			global = false,
 		},
 		open_file = {
-			quit_on_open = true,
+			quit_on_open = false,
 			resize_window = false,
 			window_picker = {
 				enable = true,
@@ -117,9 +142,26 @@ nvim_tree.setup({
 			close_window = true,
 		},
 	},
+	diagnostics = {
+		enable = false,
+		show_on_dirs = false,
+		debounce_delay = 50,
+		icons = {
+			hint = "",
+			info = "",
+			warning = "",
+			error = "",
+		},
+	},
 	filesystem_watchers = {
 		enable = true,
 		debounce_delay = 50,
+	},
+	git = {
+		enable = true,
+		ignore = true,
+		show_on_dirs = true,
+		timeout = 400,
 	},
 	trash = {
 		cmd = "gio trash",
@@ -142,17 +184,6 @@ nvim_tree.setup({
 			profile = false,
 			watcher = false,
 		},
-	},
-	diagnostics = {
-		enable = false,
-		show_on_dirs = false,
-		debounce_delay = 50,
-	},
-	git = {
-		enable = true,
-		ignore = false,
-		show_on_dirs = true,
-		timeout = 400,
 	},
 })
 

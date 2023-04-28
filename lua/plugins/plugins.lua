@@ -40,7 +40,7 @@ return {
 	"jose-elias-alvarez/null-ls.nvim",
 	"jayp0521/mason-null-ls.nvim",
 	"folke/trouble.nvim",
-	"mfussenegger/nvim-jdtls",
+	-- "mfussenegger/nvim-jdtls",
 	"folke/neodev.nvim",
 	--tool
 	{

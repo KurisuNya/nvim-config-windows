@@ -65,16 +65,16 @@ vim.bo.autoread = true
 -- 显示左侧图标指示列
 vim.wo.signcolumn = "yes"
 -- 中英文自动切换
-local im_english = "C:\\im-select.exe 1033"
-local im_chinese = "C:\\im-select.exe 2052"
+local im_english = "C:\\Others\\LittleTools\\IMSelect.exe 1033"
+local im_chinese = "C:\\Others\\LittleTools\\IMSelect.exe 2052"
 vim.api.nvim_command("autocmd VimEnter * :silent :!" .. im_english)
 vim.api.nvim_command("autocmd InsertEnter * :silent :!" .. im_chinese)
 vim.api.nvim_command("autocmd InsertLeave * :silent :!" .. im_english)
 vim.api.nvim_command("autocmd VimLeave * :silent :!" .. im_chinese)
 -- 光标闪烁
-local cursor_shape = "n-v-c:block,i-ci-ve:ver26,r-cr:hor20,o:hor50,"
-local cursor_blink = "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon17"
-vim.api.nvim_command("set guicursor=" .. cursor_shape .. cursor_blink)
+-- local cursor_shape = "n-v-c:block,i-ci-ve:ver26,r-cr:hor20,o:hor50,"
+-- local cursor_blink = "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon17"
+-- vim.api.nvim_command("set guicursor=" .. cursor_shape .. cursor_blink)
 -- 命令行不显示
 vim.opt.cmdheight = 0
 -- 关闭新行注释
